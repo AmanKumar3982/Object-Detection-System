@@ -1,0 +1,71 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Started</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            color: cyan;
+            text-decoration: none;
+        }
+        #video-stream {
+            margin-top: 30px;
+            border: 5px solid cyan;
+            border-radius: 10px;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: cyan;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi, {{ username }}!</h1>
+    <p>Your detection has started successfully.</p>
+    <p>Report will be sent to: <strong>{{ email }}</strong></p>
+
+    <!-- 🔴 Webcam Stream -->
+    <img id="video-stream" src="/video?username={{ username }}" width="640" height="480" />
+
+    <!-- Message -->
+    <div class="message">
+        <p>Generating your detection report...</p>
+    </div>
+
+    <!-- 🔽 Manual Download Button -->
+    <a href="/generate_report" class="button">📄 Download Report Manually</a>
+
+    <!-- Auto Redirect Script -->
+    <script>
+        window.onload = function () {
+            setTimeout(function () {
+                window.location.href = "/generate_report";
+            }, 300); // 3-second auto redirect
+        };
+    </script>
+
+    <p style="margin-top: 40px;"><a href="/">⬅ Go Back to Home</a></p>
+</body>
+</html>

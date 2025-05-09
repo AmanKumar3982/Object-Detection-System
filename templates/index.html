@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartVision Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("/static/background.png") no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            backdrop-filter: blur(4px);
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        .floating-text {
+            font-size: 3em;
+            color: #00f7ff;
+            animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+            margin-bottom: 30px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+            }
+            100% {
+                text-shadow: 0 0 20px #00ffe7, 0 0 30px #00ffe7, 0 0 40px #00ffe7;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            width: 250px;
+            font-size: 1em;
+        }
+
+        button {
+            padding: 12px 30px;
+            background-color: #00f7ff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            color: black;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #00cdd0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="floating-text">SmartVision Pro</div>
+        <form action="/detect" method="POST">
+            <input type="text" name="username" placeholder="Enter your name" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Start Detection</button>
+        </form>
+    </div>
+</body>
+</html>

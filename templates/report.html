@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Hi {{ name }}!</h2>
+        <p>Here’s your detection summary:</p>
+        <ul>
+            {% for obj in objects %}
+                <li>{{ obj }}</li>
+            {% endfor %}
+        </ul>
+        <p>Total objects: {{ total }}</p>
+        <a href="{{ url_for('download_report', filename=pdf_filename) }}" class="button">📥 Download Report</a>
+    </div>
+</body>
+</html>
