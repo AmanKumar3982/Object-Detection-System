@@ -20,5 +20,4 @@ A real-time object detection web application built with Flask, YOLOv8, and OpenC
 - SMTP (Email handling)
 - Threading (Background tasks)
 
-## 📂 Project Structure
 
